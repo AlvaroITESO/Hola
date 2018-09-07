@@ -1,0 +1,21 @@
+
+
+.data
+.text
+
+
+main:
+addi $s0, $zero, 150# INT A
+addi $s1, $zero ,  5# INT B
+addi $s2, $zero, 0 # SUMA
+
+
+
+loop:
+slt $t1, $s0, $s1 #SI YA NO CABE EL NUMERO SE TERMINA
+beq $t1,1,exit 
+addi $s2,$s2,1 #SE INCREMENTE EL CONTADOR DE NUMERO DE VECES QUE CABE EL NUMERO
+sub $s0, $s0,$s1 #SE RESTA EL VALOR B a A
+j loop
+
+exit:

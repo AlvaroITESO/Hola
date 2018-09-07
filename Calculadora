@@ -1,0 +1,39 @@
+
+.data
+
+.text
+
+main:
+addi $s0, $zero, 6 # A
+addi $s1, $zero ,  3  # B
+addi $s2, $zero, 4 # SELECTOR
+addi $s3, $zero, 0 #Resultado
+
+beq $s2, 1, suma  #CASE PARA SUMA
+beq $s2, 2, resta #CASE PARA RESTA
+beq $s2, 3, multiplicacion #CASE PARA MULTIPLICACION
+beq $s2, 4, division #CASE PARA DIVISION
+
+suma:  #SUMA Y LO AÑANDE A S3
+add $t1, $s0,$s1   
+add $s3, $s3, $t1
+j exit
+
+resta: #RESTA Y LO PONE EN S3
+sub $t1, $s0,$s1
+add $s3, $s3, $t1
+j exit
+
+multiplicacion: #MULTIPLICA Y LO PONE EN S3
+mult  $s0,$s1
+mflo $t1
+add $s3, $s3, $t1
+j exit
+
+division:  #DIVIDE Y LO PONE EN S3
+div  $s0,$s1
+mflo $t1
+add $s3, $s3, $t1
+j exit
+
+exit:

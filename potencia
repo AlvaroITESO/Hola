@@ -1,0 +1,21 @@
+
+
+.data
+
+.text
+
+main:
+addi $s0, $zero, 4 # N
+addi $s1, $zero ,  4  # POTENCIA
+addi $s2, $zero, 0 # CONTADOR
+addi $s3, $zero, 1 #SUMA
+
+loop:
+slt $t1, $s2,$s1 #CICLO
+beq $t1, $zero, exit # FIN DE CICLO
+mult $s3,$s0 #MULTIPLICAR 
+mflo $s3 #TOMAR VALOR DE MULTIPLICACION
+add $s2,$s2, 1 #AUMENTAR CONTADOR
+j loop 
+
+exit:
